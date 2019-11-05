@@ -64,7 +64,7 @@ app.get("/user/signin/callback", (req, res) => {
 app.get("/api/star", (req, res) => {
   axios
     .put(
-      "https://api.github.com/user/starred/yoelmacia/musicMaker?access_token=b78e1fea0802694b4430f2e392ebbce9f0cc0f70"
+      `https://api.github.com/user/starred/yoelmacia/musicMaker?access_token=${this.ACCESS_TOKEN}`
     )
     .then(response => {
       const data = response.data;
@@ -80,7 +80,7 @@ app.get("/api/bookmarks", (req, res) => {
   axios
     .get("https://api.github.com/users/yoelmacia/starred", {
       headers: {
-        Authorization: "token b78e1fea0802694b4430f2e392ebbce9f0cc0f70",
+        Authorization: `token ${this.ACCESS_TOKEN}`,
         Accept: "application / vnd.github.v3.star + json"
       }
     })
@@ -98,7 +98,7 @@ app.get("/user", (req, res) => {
   axios
     .get("https://api.github.com/user", {
       headers: {
-        Authorization: "token b78e1fea0802694b4430f2e392ebbce9f0cc0f70"
+        Authorization: `token ${this.ACCESS_TOKEN}`
       }
     })
     .then(response => {
