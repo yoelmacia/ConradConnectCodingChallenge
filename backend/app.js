@@ -61,4 +61,18 @@ app.get("/user/signin/callback", (req, res) => {
     });
 });
 
+app.get("/api/star", (req, res) => {
+  axios
+    .put(
+      "https://api.github.com/user/starred/yoelmacia/musicMaker?access_token=b78e1fea0802694b4430f2e392ebbce9f0cc0f70"
+    )
+    .then(response => {
+      const data = response.data;
+      res.send(data);
+    })
+    .catch(error => {
+      console.log("adios");
+      console.log(error);
+    });
+});
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
