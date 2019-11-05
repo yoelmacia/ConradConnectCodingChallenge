@@ -93,4 +93,22 @@ app.get("/api/bookmarks", (req, res) => {
       console.log(error);
     });
 });
+
+app.get("/user", (req, res) => {
+  axios
+    .get("https://api.github.com/user", {
+      headers: {
+        Authorization: "token b78e1fea0802694b4430f2e392ebbce9f0cc0f70"
+      }
+    })
+    .then(response => {
+      const data = response.data;
+      res.send(data);
+    })
+    .catch(error => {
+      console.log("adios");
+      console.log(error);
+    });
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
