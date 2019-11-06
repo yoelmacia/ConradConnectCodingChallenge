@@ -4,13 +4,14 @@ const router = express.Router();
 
 router.get("/api/repo", (req, res) => {
   const data = [];
-  const url = "https://api.github.com/search/repositories?q=tetris";
+  const query = req.query.q;
+  const url = `https://api.github.com/search/repositories?q=${query}`;
   const getData = async url => {
     try {
       const response = await fetch(url);
       const json = await response.json();
       data.push(json);
-      console.log(data);
+      res.send(data);
       return data;
     } catch (error) {
       console.log(error);
