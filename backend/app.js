@@ -17,7 +17,7 @@ app.use(user);
 app.use(star);
 app.use(unstar);
 
-app.get("/authorize", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/index.html"));
 });
 
