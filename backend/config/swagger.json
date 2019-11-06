@@ -1,0 +1,157 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "HTTP API to search for Github repositories.",
+    "version": "1.0.0",
+    "title": "Conrad Connect Backend"
+  },
+  "tags": [
+    {
+      "name": "bookmarks",
+      "description": "Get all the bookmarks from a user"
+    },
+    {
+      "name": "repo",
+      "description": "Get all repositories from a specific search"
+    },
+    {
+      "name": "user",
+      "description": "Get user info"
+    },
+    {
+      "name": "star",
+      "description": "Star/Bookmark repo"
+    },
+    {
+      "name": "unstar",
+      "description": "Unstar/Unbookmark repo"
+    }
+  ],
+  "schemes": ["http"],
+  "paths": {
+    "/api/bookmarks": {
+      "get": {
+        "tags": ["bookmarks"],
+        "summary": "Get all bookmarks by user",
+        "description": "This can only be done by the authorized user.",
+        "operationId": "bookmarks",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "user",
+            "type": "string",
+            "required": true,
+            "description": "Username to get all bookmarks."
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/api/repo": {
+      "get": {
+        "tags": ["repo"],
+        "summary": "Get all repositories List of repositories from a specific search",
+        "description": "This can only be done by the authorized user.",
+        "operationId": "q",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "type": "string",
+            "required": true,
+            "description": "Search term to get all repositories."
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/api/user": {
+      "get": {
+        "tags": ["user"],
+        "summary": "Get user info",
+        "description": "This can only be done by the authorized user.",
+        "operationId": "user",
+        "produces": ["application/json"],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/api/star": {
+      "get": {
+        "tags": ["star"],
+        "summary": "Star/Bookmark repository",
+        "description": "This can only be done by the authorized user.",
+        "operationId": "star",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "user",
+            "type": "string",
+            "required": true,
+            "description": "User."
+          },
+          {
+            "in": "query",
+            "name": "repo",
+            "type": "string",
+            "required": true,
+            "description": "Repository."
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/api/unstar": {
+      "get": {
+        "tags": ["unstar"],
+        "summary": "Unstar/Unbookmark repository",
+        "description": "This can only be done by the authorized user.",
+        "operationId": "unstar",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "user",
+            "type": "string",
+            "required": true,
+            "description": "User."
+          },
+          {
+            "in": "query",
+            "name": "repo",
+            "type": "string",
+            "required": true,
+            "description": "Repository."
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about the project",
+    "url": "https://github.com/yoelmacia/ConradConnectCodingChallenge"
+  }
+}

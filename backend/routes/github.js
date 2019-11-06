@@ -2,6 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const router = express.Router();
 const config = require("../config/config.js");
+const path = require("path");
 
 router.get("/user/signin/callback", (req, res) => {
   // GET THE CODE FROM THE AUTHORIZE URL
@@ -29,7 +30,7 @@ router.get("/user/signin/callback", (req, res) => {
     .then(response => {
       const data = response.data;
       config.token = data.split("&")[0].split("=")[1];
-      res.send(data);
+      res.sendFile(path.join(__dirname + "/authorize.html"));
     })
     .catch(error => {
       console.log(error);

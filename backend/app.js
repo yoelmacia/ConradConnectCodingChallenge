@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require("path");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./config/swagger.json");
 
 const github = require("./routes/github.js");
 const bookmarks = require("./routes/bookmarks.js");
@@ -16,6 +18,9 @@ app.use(repositories);
 app.use(user);
 app.use(star);
 app.use(unstar);
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/api/v1", bookmarks);
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/index.html"));
