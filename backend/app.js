@@ -8,12 +8,14 @@ const bookmarks = require("./routes/bookmarks.js");
 const repositories = require("./routes/repositories.js");
 const user = require("./routes/user.js");
 const star = require("./routes/star.js");
+const unstar = require("./routes/unstar.js");
 
 app.use(github);
 app.use(bookmarks);
 app.use(repositories);
 app.use(user);
 app.use(star);
+app.use(unstar);
 
 app.get("/authorize", (req, res) => {
   res.sendFile(path.join(__dirname + "/index.html"));
