@@ -4,9 +4,11 @@ const config = require("../config/config.js");
 const router = express.Router();
 
 router.get("/api/star", (req, res) => {
+  const user = req.query.user;
+  const repo = req.query.repo;
   axios
     .put(
-      `https://api.github.com/user/starred/yoelmacia/musicMaker?access_token=${config.token}`
+      `https://api.github.com/user/starred/${user}/${repo}?access_token=${config.token}`
     )
     .then(response => {
       const data = response.data;
