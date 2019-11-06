@@ -4,8 +4,9 @@ const config = require("../config/config.js");
 const router = express.Router();
 
 router.get("/api/bookmarks", (req, res) => {
+  const user = req.query.user;
   axios
-    .get("https://api.github.com/users/yoelmacia/starred", {
+    .get(`https://api.github.com/users/${user}/starred`, {
       headers: {
         Authorization: `token ${config.token}`,
         Accept: "application / vnd.github.v3.star + json"
