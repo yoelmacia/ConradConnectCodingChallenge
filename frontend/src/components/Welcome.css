@@ -15,7 +15,7 @@
   max-width: 320px;
 }
 
-.container-button {
+.container-link {
   border-color: #00b461;
   background-color: #00cd6f;
   border-radius: 50px;
@@ -23,9 +23,6 @@
   padding: 15px 32px;
   font-size: 20px;
   cursor: pointer;
-}
-
-.container-link {
   color: #fff;
   text-decoration: none;
 }

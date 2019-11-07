@@ -6,14 +6,12 @@ export default class Welcome extends React.Component {
     return (
       <div className="container">
         <div className="container-div">Welcome Github API</div>
-        <button className="container-button">
-          <a
-            className="container-link"
-            href="https://github.com/login/oauth/authorize?client_id=723d03ab329e99ca2336&scope=public_repo"
-          >
-            Sign up with github
-          </a>
-        </button>
+        <a
+          className="container-link"
+          href="https://github.com/login/oauth/authorize?client_id=723d03ab329e99ca2336&scope=public_repo"
+        >
+          Sign up with github
+        </a>
       </div>
     );
   }

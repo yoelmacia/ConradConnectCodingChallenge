@@ -84,11 +84,9 @@ export default class Search extends React.Component {
         <div className="nav-container">
           <p className="nav-container-left">User Authorized</p>
           <p className="nav-container-right">
-            <button className="nav-button">
-              <a className="nav-link" href="http://localhost:3000/api-docs">
-                Use API with Swagger
-              </a>
-            </button>
+            <a className="nav-link" href="http://localhost:3000/api-docs">
+              Use API with Swagger
+            </a>
           </p>
         </div>
         <div className="nav-search-container">
