@@ -13,6 +13,15 @@ export default class Search extends React.Component {
   handleChange = event => {
     this.setState({ search: event.target.value });
   };
+  starRepo(user, repo) {
+    fetch(`http://localhost:3000/api/star?user=${user}&repo=${repo}`)
+      .then(response => {
+        this.receiveData();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   receiveData() {
     const url = `http://localhost:3000/api/repo?q=${this.state.search}`;
     const getData = async url => {
@@ -38,7 +47,13 @@ export default class Search extends React.Component {
     const listProducts = this.state.items.map((repo, index) => (
       <tr key={index} className="repo-index">
         <td>
-          <button>Star</button>
+          <button
+            onClick={e => {
+              this.starRepo(repo.owner.login, repo.name);
+            }}
+          >
+            Star
+          </button>
         </td>
         <td>
           <button>Unstar</button>
