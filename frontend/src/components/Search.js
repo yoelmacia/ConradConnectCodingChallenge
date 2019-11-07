@@ -22,6 +22,15 @@ export default class Search extends React.Component {
         console.log(error);
       });
   }
+  unstarRepo(user, repo) {
+    fetch(`http://localhost:3000/api/unstar?user=${user}&repo=${repo}`)
+      .then(response => {
+        this.receiveData();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   receiveData() {
     const url = `http://localhost:3000/api/repo?q=${this.state.search}`;
     const getData = async url => {
@@ -56,7 +65,13 @@ export default class Search extends React.Component {
           </button>
         </td>
         <td>
-          <button>Unstar</button>
+          <button
+            onClick={e => {
+              this.unstarRepo(repo.owner.login, repo.name);
+            }}
+          >
+            Unstar
+          </button>
         </td>
         <td>{repo.name}</td>
         <td>{repo.owner.login}</td>
