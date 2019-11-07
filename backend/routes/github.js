@@ -30,7 +30,7 @@ router.get("/user/signin/callback", (req, res) => {
     .then(response => {
       const data = response.data;
       config.token = data.split("&")[0].split("=")[1];
-      res.sendFile(path.join(__dirname + "/authorize.html"));
+      res.redirect("http://localhost:3001/search");
     })
     .catch(error => {
       console.log(error);
