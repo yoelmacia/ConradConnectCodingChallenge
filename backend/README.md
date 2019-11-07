@@ -17,6 +17,10 @@ npm install
 npm start
 ```
 
+## Test the API
+
+The API can be test with swagger in the url: https://localhost:3000/api-docs when the server is running.
+
 ## Meta
 
 Yoel Macia Delgado
