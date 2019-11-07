@@ -12,6 +12,11 @@ const user = require("./routes/user.js");
 const star = require("./routes/star.js");
 const unstar = require("./routes/unstar.js");
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 app.use(github);
 app.use(bookmarks);
 app.use(repositories);
