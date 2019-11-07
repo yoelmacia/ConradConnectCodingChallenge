@@ -83,6 +83,9 @@ export default class Search extends React.Component {
       <div className="container">
         <div className="nav-container">
           <p className="nav-container-left">User Authorized</p>
+          <p className="nav-container-center">
+            <a href="http://localhost:3001/bookmarks">Go to Bookmarks</a>
+          </p>
           <p className="nav-container-right">
             <a className="nav-link" href="http://localhost:3000/api-docs">
               Use API with Swagger
