@@ -28,6 +28,8 @@ export default class Search extends React.Component {
   }
   render() {
     const headerProducts = [
+      "Star",
+      "Unstar",
       "Name",
       "Owner",
       "Number Of Stars",
@@ -35,6 +37,12 @@ export default class Search extends React.Component {
     ].map((key, index) => <th key={index}> {key.toUpperCase()}</th>);
     const listProducts = this.state.items.map((repo, index) => (
       <tr key={index} className="repo-index">
+        <td>
+          <button>Star</button>
+        </td>
+        <td>
+          <button>Unstar</button>
+        </td>
         <td>{repo.name}</td>
         <td>{repo.owner.login}</td>
         <td>{repo.stargazers_count}</td>
