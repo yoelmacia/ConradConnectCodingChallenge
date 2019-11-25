@@ -1,6 +1,6 @@
-# Conrad Connect Coding Challenge
+# Playing with Github API
 
-This is a test code for Conrad Connect
+Practice and build an app to use the Github API.
 
 ### To run the frontend
 ```
